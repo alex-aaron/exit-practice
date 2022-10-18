@@ -96,6 +96,7 @@ let getUserQueue = function(users, userName){
   return queue;
 }
 
+// DO NOT ALTER CODE BELOW //////////////////////////////////////////////////////
 module.exports = {
     users,
     creatUserString,
