@@ -86,9 +86,10 @@ let getUserQueue = function(users, userName){
     if (users[i].name === userName){
       for (let j = 0; j < users[i].queue.length; j++){
         if (j === users[i].queue.length - 1){
+          queue += users[i].queue[j];
+        } else {
           queue += users[i].queue[j] + '\n';
         }
-        queue += users[i].queue[j];
       }
     }
   }
