@@ -51,4 +51,12 @@ describe("exit-practice-1", function(){
             assert.notEqual(copy[2].queue[copy[1].queue.length - 1], 'Decision to Leave');
         });
     });
+    describe("getUserQueue", function(){
+        it('should return a string', function(){
+            assert.equal(typeof getUserQueue(users, 'Alex'), 'string');
+        });
+        it('should return a string formatted with line breaks', function(){
+            assert.equal(getUserQueue(users, 'Alex'), "JFK\nRear Window\nThe Thing");
+        });
+    });
 });

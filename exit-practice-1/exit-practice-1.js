@@ -76,6 +76,25 @@ let addMovieToQueue = function(users, movie){
     }
 };
 
+////////////////////////////////////////////////////////////////////////////////
+// PROBLEM #3 //////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+let getUserQueue = function(users, userName){
+  let queue = "";
+  for (let i = 0; i < users.length; i++){
+    if (users[i].name === userName){
+      for (let j = 0; j < users[i].queue.length; j++){
+        if (j === users[i].queue.length - 1){
+          queue += users[i].queue[j] + '\n';
+        }
+        queue += users[i].queue[j];
+      }
+    }
+  }
+  return queue;
+}
+
 module.exports = {
     users,
     creatUserString,
