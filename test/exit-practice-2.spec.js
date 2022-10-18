@@ -35,4 +35,43 @@ describe("exit-practice-2", function(){
             assert.equal(getMeetingRecursively.toString().includes('return getMeetingRecursively('), true);
         });
     });
+    describe('#printMeetingData', function(){
+        const sandbox = sinon.createSandbox();
+
+        beforeEach(function(){
+            sandbox.spy(console, 'log');
+        });
+
+        afterEach(function(){
+            sandbox.restore();
+        });
+        it('should print the correct meeting data', function(){
+            let result = [
+                'Maryland Trip',
+                'February 25, 2022',
+                'Grant Reporting Requirements',
+                'March 1, 2022',
+                'Grant Reporting Requirements',
+                'March 2, 2022',
+                'Exterior Repairs',
+                'March 10, 2022'
+            ];
+            printMeetingData(meetings, ['agenda', 'date']);
+            for (let i = 0; i < result.length; i++){
+                assert.equal(console.log.getCall(i).args, result[i]);
+            }
+        });
+    });
+    describe("#createAcronym", function(){
+        console.log('hit this test');
+        it('should return a string', function(){
+            assert.equal(typeof createAcronym(meetings), 'string');
+        });
+        it('should return a correct string', function(){
+            assert.equal(createAcronym(meetings), 'MGGE');
+        });
+        it('should use native reduce method', function(){
+            assert.equal(createAcronym.toString().includes('.reduce('), true);
+        });
+    });
 });
