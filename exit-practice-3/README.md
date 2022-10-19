@@ -32,4 +32,20 @@ LOGS =>
 
 **Problem #3** Create a function called `createStringByPriority` that takes in one parameter - `array` - which represents an array of task objects. This function should use the native reduce method to iterate through the array. The function's use of reduce should access the index of each task object's `task` property represented by the current task's `priority`. For instance, the first task object's value at priority is 1, so the callback function in reduce should access the 1 index of 'Feed cat' ('e') and add that to the output string that reduce will return.
 
-**Problem #4:** 
+```
+createStringByPriority(tasks); // => 'eters'
+```
+
+**Problem #4:** Create a function called `createTaskMessages` that takes in one parameter - `array` - which represents an array of task objects. This function should use the native filter and map methods to return an array of messages like the example below for only the task objects that have not been completed:
+
+```
+createTaskMessages(tasks); 
+/*
+=> 
+[
+  'Stan must Feed cat',
+  'Stephanie must Order pet medication',
+  'Kyle, Stan must Do dishes'
+]
+*/
+```

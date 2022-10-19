@@ -74,6 +74,27 @@ describe("exit-practice-3", function(){
         it('should return a correct string', function(){
             assert.equal(createStringByPriority(tasks), 'eters');
         });
+        it('should use the native reduce method', function(){
+            assert.equal(createStringByPriority.toString().includes('array.reduce('), true);
+        });
+    });
+    describe('#createTaskMessages', function(){
+        it('should return an array', function(){
+            assert.equal(Array.isArray(createTaskMessages(tasks)), true);
+        });
+        it('should return an array of correct strings', function(){
+            assert.deepEqual(createTaskMessages(tasks), [
+                'Stan must Feed cat',
+                'Stephanie must Order pet medication',
+                'Kyle, Stan must Do dishes'
+              ]);
+        });
+        it('should use the native map method', function(){
+            assert.equal(createTaskMessages.toString().includes('.map('), true);
+        });
+        it('should use the native filter method', function(){
+            assert.equal(createTaskMessages.toString().includes('.filter('), true);
+        });
     });
 });
 

@@ -44,7 +44,7 @@ const tasks = [
     {
       task: 'Do dishes',
       completed: false,
-      assignedTo: ['Kyle'],
+      assignedTo: ['Kyle', 'Stan'],
       recurs: 'Weekly',
       tags: ['physical', 'long'],
       priority: 5
@@ -93,12 +93,35 @@ let getTaskStatusRecursively = function(array, task){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// PROBLEM #3//////////////////////////////////////////////////////////////////
+// PROBLEM #3 //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-let createStringByPriority = function(tasks){
-  return tasks.reduce(function(acc, current){
+let createStringByPriority = function(array){
+  return array.reduce(function(acc, current){
     acc += current.task[current.priority];
     return acc;
   }, '');
 };
+
+////////////////////////////////////////////////////////////////////////////////
+// PROBLEM #4 //////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+let createTaskMessages = function(array){
+  let notCompleted = array.filter(function(task){
+    return task.completed === false;
+  });
+
+  let messages = notCompleted.map(function(task){
+    let assignee;
+    if (task.assignedTo.length > 1){
+      assignee = task.assignedTo.join(", ");
+    } else {
+      assignee = task.assignedTo[0];
+    }
+    return `${assignee} must ${task.task}`;
+  });
+  return messages;
+};
+
+console.log(createTaskMessages(tasks));
