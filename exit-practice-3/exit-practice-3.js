@@ -92,4 +92,13 @@ let getTaskStatusRecursively = function(array, task){
   return getTaskStatusRecursively(array.slice(1), task);
 }
 
-console.log(getTaskStatusRecursively(tasks, 'Get groceries'));
+////////////////////////////////////////////////////////////////////////////////
+// PROBLEM #3//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+let createStringByPriority = function(tasks){
+  return tasks.reduce(function(acc, current){
+    acc += current.task[current.priority];
+    return acc;
+  }, '');
+};

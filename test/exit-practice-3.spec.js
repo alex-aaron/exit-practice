@@ -67,5 +67,13 @@ describe("exit-practice-3", function(){
             assert.equal(getTaskStatusRecursively.toString().includes('return getTaskStatusRecursively('), true);
         });
     });
+    describe("#createStringByPriority", function(){
+        it('should return a string', function(){
+            assert.equal(typeof createStringByPriority(tasks), 'string');
+        });
+        it('should return a correct string', function(){
+            assert.equal(createStringByPriority(tasks), 'eters');
+        });
+    });
 });
 
